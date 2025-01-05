@@ -74,7 +74,7 @@ export default async function HandleSubmitForm(setValidForm, setIsModel,  data) 
         validForm = false
     }
 
-    if(!data.salaryRange || data.salaryRange[0] === "" || data.salaryRange[1] === ""){
+    if(!data.salaryRange || data.salaryRange[0] === "" || data.salaryRange[1] === "" || isNaN(data.salaryRange[0]) || isNaN(data.salaryRange[1])){
         const titleInput = document.getElementById("minSalary");
         titleInput.classList.add("isinvalid");
         titleInput.addEventListener("focus", () => {
@@ -148,6 +148,7 @@ export default async function HandleSubmitForm(setValidForm, setIsModel,  data) 
     const url = `${process.env.NEXT_PUBLIC_BACKEND_API}job-profile/newJob`
     setValidForm(true)
     try {
+        data.salaryRange = data.salaryRange.map(Number)
         const retData = await axios.post(url, data)
         if(retData.status >= 200){
             alert("Job Posted Successfully")

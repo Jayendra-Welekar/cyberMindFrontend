@@ -269,7 +269,7 @@ export default function Form() {
                   Salary Range
                   <div className="flex w-full flex-row justify-between items-center pr-2">
                     <input
-                      type="number"
+                      type="text"
                       {...register("salaryRange[0]")}
                       onChange={(event) => {
                         setSalaryRange([
@@ -283,7 +283,7 @@ export default function Form() {
                       value={salaryRange[0] ? salaryRange[0] : ""}
                     />
                     <input
-                      type="number"
+                      type="text"
                       {...register("salaryRange[1]")}
                       onChange={(event) => {
                         setSalaryRange([
