@@ -87,9 +87,9 @@ export default function Cards({jobProfile}) {
                     <div className="text-gray-700 mt-4">
                         <ul className="list-disc pl-4 flex flex-col gap-y-2">
                             {
-                            jobProfile.jobDescription.split(".", 3).map((item, index) => (
+                            jobProfile.jobDescription.split(".", 2).map((item, index) => (
                                     <li key={index} >
-                                        <p className="whitespace-normal break-words">{item.slice(0, 80) + "..."}</p>
+                                        <p className="whitespace-normal break-words">{item.slice(0, 40) + "..."}</p>
                                     </li>
                             ))
                             }
