@@ -24,7 +24,7 @@ export default function Cards({jobProfile}) {
                 </div>
 
                 <div className="description px-4">
-                    <div className="flex flex-col sm:flex-row m-0 sm:my-2 justify-between items-start sm:items-center">
+                    <div className="flex flex-col sm:flex-row m-0  justify-between items-start sm:items-center">
                         <div className="flex flex-row items-center h-[26px] ">
                             <svg
                                 width="19"

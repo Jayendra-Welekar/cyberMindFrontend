@@ -53,7 +53,7 @@ export default function Bottombar() {
     return (
         <div className="w-full h-full px-2 sm:px-4 md:px-16 py-8 bg-gray-100">
             {!filtering && jobProfiles.length > 0 && <>
-            <div className="px-auto h-full flex md:justify-start justify-center items-center flex-wrap p-4  gap-x-8 gap-y-8 ">
+            <div className="px-auto h-full flex  justify-center items-center flex-wrap p-4  gap-x-8 gap-y-8 ">
                 {jobProfiles.length > 0 && jobProfiles.map((element, i) => {
                     return <Cards key={i} jobProfile={element}/>;
                 })}

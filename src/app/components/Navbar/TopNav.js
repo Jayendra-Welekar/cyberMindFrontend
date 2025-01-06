@@ -26,7 +26,7 @@ export default function TopNav() {
 
     useEffect(() => {
         const handleScroll = () => {
-          if (window.scrollY > 100) {
+          if (window.scrollY > 200) {
             setIsFixed(true);
           } else {
             setIsFixed(false);

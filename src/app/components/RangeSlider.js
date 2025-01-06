@@ -27,9 +27,9 @@
         
                 
             <range-slider ref={rangeRef} id="rangeSlider" className="w-full"
-                        min="100000"
+                        min="0"
                         max="2000000"
-                        value="100000-2000000"
+                        value="0-2000000"
                         step="1000"
                         style={{
                             '--thumb-width': '18px',
