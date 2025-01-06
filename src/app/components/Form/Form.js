@@ -5,6 +5,8 @@ import { useContext, useEffect, useState } from "react";
 import { set, useForm } from "react-hook-form";
 import HandleSubmitForm from "./HandleSubmitForm";
 
+import { IoMdClose } from "react-icons/io";
+
 export default function Form() {
   const [jobTitle, setJobTitle] = useState("");
   const [companyName, setCompanyName] = useState("");
@@ -122,10 +124,12 @@ export default function Form() {
     <>
       <div
         id="form"
-        className="absolute overflow-y-auto w-full h-screen top-0 left-0 z-10 flex justify-center items-center bg-gray-400/40 pointer-events-auto p-8"
+        className="absolute overflow-y-auto  w-full h-screen top-0 left-0 z-10 flex justify-center items-center bg-gray-400/40 pointer-events-auto py-8 px-2 md:px-8"
       >
-        {user && <div className="md:min-w-[800px]  md:max-w-[600px] bg-white rounded-md p-8 shadow-lg ">
-          {user && user.role === "admin" && <><div className="w-full flex justify-center items-center my-4">
+        {user && <div className="md:min-w-[800px]  md:max-w-[600px] bg-white rounded-md p-8 shadow-lg mt-[300px] md:mt-0 relative">
+          {user && user.role === "admin" && <>
+         <IoMdClose className="md:top-8 md:right-4 top-4 right-2 absolute mx-4 text-3xl cursor-pointer text-gray-700 hover:text-black hover:rotate-90 transition-all duration-200" onClick={()=>setIsModel(false)}/>
+          <div className="w-full flex justify-center items-center my-4">
             <h1 className="text-2xl font-medium">Create Job Opening</h1>
           </div>
             <form
@@ -378,7 +382,7 @@ export default function Form() {
               <div className="w-full flex flex-row  justify-between items-center mt-4">
                 <button
                   onClick={saveDraft}
-                  className="flex flex-row gap-x-1 justify-center items-center p-2 px-8 rounded-lg border-[1px] font-medium border-gray-800 text-gray-800  hover:text-gray-500 hover:border-gray-500"
+                  className="flex flex-row gap-x-1 justify-center items-center p-2 sm:px-8 px-4 rounded-lg border-[1px] font-medium border-gray-800 text-gray-800  hover:text-gray-500 hover:border-gray-500"
                 >
                   {`Save Draft`}
                   <svg
