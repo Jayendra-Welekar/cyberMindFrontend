@@ -2,6 +2,7 @@ import axios from "axios";
 import { stringify } from "postcss";
 
 export default async function JobProfileData(page, limit, filterData){
+    
     page = JSON.stringify(page);
     limit = JSON.stringify(limit);
     console.log("Filter Data: ", filterData)

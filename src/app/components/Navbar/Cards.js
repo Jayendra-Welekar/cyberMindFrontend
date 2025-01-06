@@ -5,7 +5,7 @@ export default function Cards({jobProfile}) {
     console.log({jobProfile})
 
     return (
-        <div className="cards max-w-[350px] h-auto sm:h-[370px] bg-white flex flex-col justify-between rounded-2xl shadow-md grow cursor-pointer ">
+        <div className="cards min-w-[350px] max-w-[350px] h-auto sm:h-[370px] bg-white flex flex-col justify-between rounded-2xl shadow-md grow cursor-pointer ">
             <div className="flex flex-col">
                 <div className="cardTop flex flex-row justify-between items-start p-4">
                     <div className="w-[70px] h-[70px] rounded-lg bg-gray-200  flex justify-center items-center">

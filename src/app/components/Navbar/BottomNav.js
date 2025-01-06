@@ -30,7 +30,6 @@ export default function BottomNav() {
     const handleSetJobTitle = (e)=>{
         if(titleFilterTimer != null) clearTimeout(titleFilterTimer);
         titleFilterTimer = setTimeout(() => {
-            setFiltering(true)
             setJobTitle(e.target.value)
         }, 300);
     }
@@ -39,7 +38,6 @@ export default function BottomNav() {
     const handleSetLocation = (e)=>{
         if(locationFilterTimer != null) clearTimeout(locationFilterTimer);
         locationFilterTimer = setTimeout(() => {
-            setFiltering(true)
             setLocation(e.target.value)
         }, 300);
     }
@@ -61,7 +59,6 @@ export default function BottomNav() {
     function changeSalaryRange({min, max}){
         if(sliderTime != null) clearTimeout(sliderTime);
         sliderTime = setTimeout(() => {
-            setFiltering(true)
             setSalaryRange({
                 min: Number(min),
                 max: Number(max),
@@ -123,7 +120,7 @@ export default function BottomNav() {
                 <div className="w-full flex flex-col itesm-start justify-center">
                     <div className="flex flex-row justify-between items-center">
                         <h1 className="text-lg font-medium">Salary Per Month</h1>
-                        <h1 className="text-lg font-medium">{ival/10000}K-{ival2/10000}K</h1>
+                        <h1 className="text-lg font-medium mr-2 md:m-0">{ival/10000}K-{ival2/10000}K</h1>
                     </div>
                 <RangeSlider rangeRef={rangeRef}  />
 

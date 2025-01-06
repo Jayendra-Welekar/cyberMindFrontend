@@ -11,7 +11,9 @@ export default function Bottombar() {
     
     const limit = 8
         async function getJobProfiles(filterData) {
-            try{const response = await JobProfileData(page, limit, filterData)
+            try{
+                setFiltering(true)
+                const response = await JobProfileData(page, limit, filterData)
             setJobProfiles(response)
             setFiltering(false)
             console.log(response)}
@@ -70,8 +72,8 @@ export default function Bottombar() {
                 </div>
             }
             {
-                filtering && <div className="flex flex-col items-center justify-center h-full">
-                    <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
+                filtering && <div className="flex flex-col items-center justify-center h-full py-16">
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
                     <p className="text-gray-700 text-lg font-medium">Filtering...</p>
                 </div>
             }
