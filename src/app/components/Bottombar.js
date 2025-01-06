@@ -1,19 +1,22 @@
 import { useContext, useEffect, useState } from "react";
 import Cards from "./Navbar/Cards";
 import JobProfileData from "./util/JobProfiesData";
-import { filterContext } from "../page";
+import { filterContext, filteringContext } from "../page";
 
 export default function Bottombar() {
     const [jobProfiles, setJobProfiles] = useState([])
     const [page, setPage] = useState(1)
     const {filterJobTitle, filterJobLocation, filterJobType, filterSalaryRange} = useContext(filterContext)
+    const {filtering, setFiltering  } = useContext(filteringContext)
     
     const limit = 8
-    async function getJobProfiles(filterData) {
-        const response = await JobProfileData(page, limit, filterData)
-        setJobProfiles(response)
-        console.log(response)
-    }
+        async function getJobProfiles(filterData) {
+            try{const response = await JobProfileData(page, limit, filterData)
+            setJobProfiles(response)
+            setFiltering(false)
+            console.log(response)}
+            catch(error){console.log(error)}
+        }
 
     const handleNextPage = ()=>{
         setPage((prev)=>{
@@ -47,6 +50,7 @@ export default function Bottombar() {
 
     return (
         <div className="w-full h-full px-2 sm:px-4 md:px-16 py-8 bg-gray-100">
+            {!filtering && jobProfiles.length > 0 && <>
             <div className="px-auto h-full flex md:justify-start justify-center items-center flex-wrap p-4  gap-x-8 gap-y-8 ">
                 {jobProfiles.length > 0 && jobProfiles.map((element, i) => {
                     return <Cards key={i} jobProfile={element}/>;
@@ -60,6 +64,17 @@ export default function Bottombar() {
                         <button onClick={handleNextPage} className="bg-white px-6 py-2  hover:border-blue-700 hover:border-[2px] border-blue-500 border-[2px] rounded-xl text-gray-700 hover:text-black font-medium py-2 px-4 rounded box-border">Next</button>
                     </div>}
             </div>
+            </>}{
+                !filtering && jobProfiles.length === 0 && <div className="flex flex-col items-center justify-center h-full">
+                    <p className="text-gray-700 text-lg font-medium h-1/2">No Job Profiles Found</p>
+                </div>
+            }
+            {
+                filtering && <div className="flex flex-col items-center justify-center h-full">
+                    <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
+                    <p className="text-gray-700 text-lg font-medium">Filtering...</p>
+                </div>
+            }
         </div>
     );
 }

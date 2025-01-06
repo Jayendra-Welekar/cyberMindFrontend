@@ -31,7 +31,6 @@ range-slider::before,
 range-slider input::-webkit-slider-runnable-track {
     background: rgb(var(--track-bg));
     height: var(--track-height);
-    border-radius: var(--track-border-radius);
 }
 range-slider input::-webkit-slider-thumb {
     -webkit-appearance: none;

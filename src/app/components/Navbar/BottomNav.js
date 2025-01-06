@@ -4,13 +4,14 @@ import { CiLocationOn } from "react-icons/ci";
 import { MdOutlinePersonOutline } from "react-icons/md";
 import { IoCloseOutline } from "react-icons/io5";
 import React, { useContext, useEffect, useRef } from "react";
-import { filterContext } from "@/app/page";
+import { filterContext, filteringContext } from "@/app/page";
 import RangeSlider from "../RangeSlider";
 
 export default function BottomNav() {
     const [sliderMinValue, setSliderMinValue] = React.useState(10000);
     const [sliderMaxValue, setSliderMaxValue] = React.useState(1000000);
     const {setFilterJobType, setFilterJobLocation, setFilterJobTitle, setFilterSalaryRange} = useContext(filterContext)
+    const {filtering, setFiltering} = useContext(filteringContext)
     const rangeRef = useRef(null);
     const [salaryRange, setSalaryRange] = React.useState({
         min: 10000,
@@ -28,19 +29,19 @@ export default function BottomNav() {
     let locationFilterTimer = null;
     const handleSetJobTitle = (e)=>{
         if(titleFilterTimer != null) clearTimeout(titleFilterTimer);
-
         titleFilterTimer = setTimeout(() => {
+            setFiltering(true)
             setJobTitle(e.target.value)
-        }, 2000);
+        }, 300);
     }
 
 
     const handleSetLocation = (e)=>{
         if(locationFilterTimer != null) clearTimeout(locationFilterTimer);
-
         locationFilterTimer = setTimeout(() => {
+            setFiltering(true)
             setLocation(e.target.value)
-        }, 2000);
+        }, 300);
     }
 
     
@@ -60,12 +61,12 @@ export default function BottomNav() {
     function changeSalaryRange({min, max}){
         if(sliderTime != null) clearTimeout(sliderTime);
         sliderTime = setTimeout(() => {
-            console.log(min, max)
+            setFiltering(true)
             setSalaryRange({
                 min: Number(min),
                 max: Number(max),
             });
-        }, 2000)
+        }, 300)
     }
     useEffect(()=>{
             setTimeout(()=>{
@@ -81,7 +82,7 @@ export default function BottomNav() {
                             min: inputMin.value,
                             max: inputMax.value,})
                       
-                    }, 2000)
+                    }, 300)
                 });
             }, 200)
            
