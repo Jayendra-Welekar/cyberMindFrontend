@@ -29,7 +29,7 @@ const RangeSlider = ({rangeRef}) => {
         <range-slider ref={rangeRef} id="rangeSlider" className="w-full"
                     min="100000"
                     max="2000000"
-                    value="200000-1000000"
+                    value="100000-1000000"
                     step="1000"
                     style={{
                         '--thumb-width': '18px',

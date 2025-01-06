@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import Cards from "./Navbar/Cards";
 import JobProfileData from "./util/JobProfiesData";
-import { resolveStyles } from "@mantine/core";
 import { filterContext } from "../page";
 
 export default function Bottombar() {
