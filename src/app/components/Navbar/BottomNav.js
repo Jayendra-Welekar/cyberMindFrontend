@@ -9,13 +9,13 @@ import RangeSlider from "../RangeSlider";
 
 export default function BottomNav() {
     const [sliderMinValue, setSliderMinValue] = React.useState(0);
-    const [sliderMaxValue, setSliderMaxValue] = React.useState(1000000);
+    const [sliderMaxValue, setSliderMaxValue] = React.useState(2000000);
     const {setFilterJobType, setFilterJobLocation, setFilterJobTitle, setFilterSalaryRange} = useContext(filterContext)
     const {filtering, setFiltering} = useContext(filteringContext)
     const rangeRef = useRef(null);
     const [salaryRange, setSalaryRange] = React.useState({
         min: 0,
-        max: 1000000,
+        max: 2000000,
     });
     const [jobTitle, setJobTitle] = React.useState("");
     const [location, setLocation] = React.useState("");
