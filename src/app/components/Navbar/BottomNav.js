@@ -89,7 +89,7 @@ export default function BottomNav() {
     return (
         <div className="w-full mt-8">
             <div className="w-full h-full flex flex-row items-center flex-wrap flex-grow-1">
-                <div className="min-h-[60px] h-full min-w-[200px] flex flex-row items-center justify-between md:px-4 mx-4 py-2  border-r-2 border-gray-300 flex-1 hover:border-gray-700">
+                <div className="min-h-[60px] h-full min-w-[200px] flex flex-row items-center justify-between md:px-4 mx-4 py-2  border-r-2 border-gray-300 flex-1 hover:border-gray-700 overflow-hidden">
                     <div className="w-full flex flex-row items-center">
                     <IoSearch className="text-xl mr-4 text-gray-500" />
                         <input onChange={handleSetJobTitle} className="cursor-pointer hover:text-gray-700 border-none focus:outline-none focus:ring-0" placeholder="Search By Job Title, Role"></input>
@@ -97,7 +97,7 @@ export default function BottomNav() {
                     <IoCloseOutline className="text-xl mr-4 text-gray-500 cursor-pointer hover:bg-gray-200 rounded-full overflow-hidden" onClick={()=>setJobTitle("")}  />
                 </div>
                 <div className="min-h-[60px] h-full min-w-[200px] flex flex-row justify-between items-center md:px-4 mx-4 py-2 border-r-2 border-gray-300 flex-1  hover:border-gray-700 ">
-                    <div className="w-full flex flex-row items-center"> 
+                    <div className="w-full flex flex-row items-center overflow-hidden"> 
                     <CiLocationOn className="text-2xl mr-4 text-gray-700" />
                         <input onChange={handleSetLocation} className="  focus:ring-0 cursor-pointer hover:text-gray-700  border-none " placeholder="Preffered Location "  />
                     </div>

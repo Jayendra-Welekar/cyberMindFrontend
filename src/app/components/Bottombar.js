@@ -72,9 +72,9 @@ export default function Bottombar() {
                 </div>
             }
             {
-                filtering && <div className="flex flex-col items-center justify-center h-full py-16">
+                filtering && <div className="flex flex-col gap-y-6 items-center justify-center h-full py-16">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
-                    <p className="text-gray-700 text-lg font-medium">Filtering...</p>
+                    <p className="text-gray-700 text-lg font-medium">Loading...</p>
                 </div>
             }
         </div>
